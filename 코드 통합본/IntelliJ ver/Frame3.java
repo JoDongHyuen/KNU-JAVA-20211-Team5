@@ -19,14 +19,16 @@ public class Frame3 extends JFrame{
     private JLabel lblNewLabel_3;
     private JButton btnNewButton;
     private JButton btnNewButton_1;
+    private Frame4 nextPage;
 
 
-    public Frame3(String User) {
+    public Frame3(Frame2 prevPage, String User) {
         super( "Panel Demo" );
         frame = new JPanel();
         frame.setLayout(null);
+        nextPage = new Frame4(this);
 
-        setSize(400, 500);
+        setSize(400, 550);
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 
         lblNewLabel = new JLabel(User+"의 책추천");
@@ -67,7 +69,8 @@ public class Frame3 extends JFrame{
         btnNewButton = new JButton("◀");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new Frame2();
+                prevPage.setLocation(getLocation());
+                prevPage.setVisible(true);
                 setVisible(false);
             }
         });
@@ -80,6 +83,13 @@ public class Frame3 extends JFrame{
 
 
         btnNewButton_1 = new JButton("▶");
+        btnNewButton_1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                nextPage.setLocation(getLocation());
+                nextPage.setVisible(true);
+                setVisible(false);
+            }
+        });
         btnNewButton_1.setFont(new Font("굴림", Font.BOLD, 20));
         btnNewButton_1.setBounds(313, 190, 60, 60);
         btnNewButton_1.setBorderPainted(false);
@@ -88,6 +98,5 @@ public class Frame3 extends JFrame{
 
         add(frame);
 
-        setVisible(true);
     }
 }

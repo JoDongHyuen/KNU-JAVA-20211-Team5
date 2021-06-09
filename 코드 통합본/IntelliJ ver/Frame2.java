@@ -14,6 +14,8 @@ public class Frame2 extends JFrame
     private JButton[][] buttons; // array of buttons
     private ButtonHandler handler;
     private String[] ButtonBox;
+    private Frame3[] nextPanel;
+
     // no-argument constructor
     public Frame2()
     {
@@ -24,6 +26,7 @@ public class Frame2 extends JFrame
         handler = new ButtonHandler();
         stringText = new JLabel("Choose Type or user"); // JLabel text set
         stringText.setHorizontalAlignment(SwingConstants.CENTER); // 가운데 정렬
+        //여기에 JLabel 폰트 추가
 
         ButtonBox = new String[4];
         ButtonBox[0] = "권오민";
@@ -31,7 +34,13 @@ public class Frame2 extends JFrame
         ButtonBox[2] = "신시온";
         ButtonBox[3] = "조동현";
 
-        setSize(400, 500);
+        nextPanel = new Frame3[4];
+        for (int i = 0; i < 4; i++)
+        {
+            nextPanel[i] = new Frame3(this, ButtonBox[i]);
+        }
+
+        setSize(400, 550);
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 
         buttonJPanel.setLayout(null);
@@ -51,39 +60,38 @@ public class Frame2 extends JFrame
         add( stringText, BorderLayout.NORTH);
         add( buttonJPanel, BorderLayout.CENTER ); // add panel to JFrame
 
-        setVisible(true);
     } // end PanelFrame constructor
 
     private class ButtonHandler implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e) {
-            String cmd = e.getActionCommand(); // test code
+            String cmd = e.getActionCommand();
+
             if (cmd.equals(ButtonBox[0]))
             {
-                System.out.println(e); // test code
-                new Frame3(ButtonBox[0]);
+                nextPanel[0].setLocation(getLocation());
+                nextPanel[0].setVisible(true);
                 setVisible(false);
             }
-            if (cmd.equals(ButtonBox[1]))
+            else if (cmd.equals(ButtonBox[1]))
             {
-                System.out.println(e); // test code
-                new Frame3(ButtonBox[1]);
+                nextPanel[1].setLocation(getLocation());
+                nextPanel[1].setVisible(true);
                 setVisible(false);
             }
-            if (cmd.equals(ButtonBox[2]))
+            else if (cmd.equals(ButtonBox[2]))
             {
-                System.out.println(e); // test code
-                new Frame3(ButtonBox[2]);
+                nextPanel[2].setLocation(getLocation());
+                nextPanel[2].setVisible(true);
                 setVisible(false);
             }
-            if (cmd.equals(ButtonBox[3]))
+            else if (cmd.equals(ButtonBox[3]))
             {
-                System.out.println(e); // test code
-                new Frame3(ButtonBox[3]);
+                nextPanel[3].setLocation(getLocation());
+                nextPanel[3].setVisible(true);
                 setVisible(false);
             }
-           //else if (cmd.equals(""))
 
         }
     }
