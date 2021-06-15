@@ -27,7 +27,7 @@ public class Frame2 extends JFrame
     {
 
 
-        super( "EBOOK READER" ); // window title set
+        super( "Book Recommender"); // window title set
         //background = new ImageIcon("book3.jpg").getImage();
         ImagePanel secondPanel = new ImagePanel(new ImageIcon("book3.jpg").getImage()); //새로운 패널 추가
         add(secondPanel,BorderLayout.CENTER);

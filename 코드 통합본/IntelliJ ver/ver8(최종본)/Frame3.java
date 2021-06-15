@@ -33,7 +33,7 @@ public class Frame3 extends JFrame{
 
 
     public Frame3(Frame2 prevPage, String User, Frame3[] pagelist, int order) {
-        super( "Panel Demo" );
+        super( "Book Recommender" );
         ImagePanel frame = new ImagePanel(new ImageIcon("book3.jpg").getImage()); //이미지 불러오기
         num = order;
         //frame = new JPanel();

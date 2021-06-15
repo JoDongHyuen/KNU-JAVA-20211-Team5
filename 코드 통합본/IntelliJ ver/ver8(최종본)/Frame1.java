@@ -42,6 +42,7 @@ public class Frame1 extends JFrame {
     private Frame2 nextPage;
 
     public Frame1() {
+        super("Book Recommender");
         frame = new JFrame();
         nextPage = new Frame2();
 
