@@ -2,13 +2,11 @@
 //import 패키지명 (default package라면 이름 바꿀 것)
 //import Frame2
 
-import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -33,7 +31,7 @@ public class Frame3 extends JFrame{
 
 
     public Frame3(Frame2 prevPage, String User, Frame3[] pagelist, int order) {
-        super( "Book Recommender" );
+        super( "Panel Demo" );
         ImagePanel frame = new ImagePanel(new ImageIcon("book3.jpg").getImage()); //이미지 불러오기
         num = order;
         //frame = new JPanel();
@@ -172,32 +170,12 @@ public class Frame3 extends JFrame{
         JButton ttsButton = new JButton(new ImageIcon("./tts.png"));	//TTS 프로그램 작동시키는 버튼, 기능 구현은 안돼있습니다.
         ttsButton.setBorderPainted(false);
         ttsButton.setContentAreaFilled(false);
+        ttsButton.setToolTipText("음성으로 듣기");
         ttsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SynthesizeText(books[num].getBookContent());
-                File file = new File("output.wav"); //여기서부터 clip.start()는 Mp3Player와 같은 역할을 합니다. 꼭 필요함
-                AudioInputStream audioStream = null;
-                try {
-                    audioStream = AudioSystem.getAudioInputStream(file);
-                } catch (UnsupportedAudioFileException unsupportedAudioFileException) {
-                    unsupportedAudioFileException.printStackTrace();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
-                Clip clip = null;
-                try {
-                    clip = AudioSystem.getClip();
-                } catch (LineUnavailableException lineUnavailableException) {
-                    lineUnavailableException.printStackTrace();
-                }
-                try {
-                    clip.open(audioStream);
-                } catch (LineUnavailableException lineUnavailableException) {
-                    lineUnavailableException.printStackTrace();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
-                clip.start();
+                new SynthesizeText("안녕하세요 이북 서비스 입니다 만나서 반갑습니다");
+                test = new Mp3Player("output.mp3");
+                test.run();
             }
         });
         ttsButton.setBounds(70, 455, 50, 50);
@@ -206,6 +184,7 @@ public class Frame3 extends JFrame{
         JButton buyNow = new JButton(new ImageIcon("./cart.png"));		//구매 페이지로 이동시키는 버튼, 이것도 uri값 리턴하는 함수 만들어야 할듯
         buyNow.setBorderPainted(false);
         buyNow.setContentAreaFilled(false);
+        buyNow.setToolTipText("구매하러 가기");
         buyNow.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 jLabelClicked(e);
