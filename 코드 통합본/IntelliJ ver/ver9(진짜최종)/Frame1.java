@@ -139,11 +139,11 @@ public class Frame1 extends JFrame {
         btnNewButton.setBounds(80, 390, 245, 52);
         welcomePanel.add(btnNewButton);
 
-        JLabel lblNewLabel = new JLabel("EBOOK READER");   //제목 라벨
+        JLabel lblNewLabel = new JLabel("BOOK Recommender");   //제목 라벨
         lblNewLabel.setForeground(new Color(219, 216, 216));
         lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lblNewLabel.setFont(new Font("Felix Titling", Font.BOLD | Font.ITALIC, 25));
-        lblNewLabel.setBounds(80, 128, 245, 78);
+        lblNewLabel.setBounds(40, 128, 300, 78);
         welcomePanel.add(lblNewLabel);
 
         JLabel lblPw = new JLabel("PW");  //PW라벨
