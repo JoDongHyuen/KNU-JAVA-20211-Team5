@@ -174,7 +174,7 @@ public class Frame3 extends JFrame{
         ttsButton.setContentAreaFilled(false);
         ttsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SynthesizeText("안녕하세요 이북 서비스 입니다 만나서 반갑습니다");
+                new SynthesizeText(books[num].getBookContent());
                 File file = new File("output.wav"); //여기서부터 clip.start()는 Mp3Player와 같은 역할을 합니다. 꼭 필요함
                 AudioInputStream audioStream = null;
                 try {
