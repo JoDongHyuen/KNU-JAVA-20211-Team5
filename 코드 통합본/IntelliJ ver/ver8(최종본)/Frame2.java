@@ -15,6 +15,7 @@ public class Frame2 extends JFrame
 //    private ButtonHandler handler;
     private String[] ButtonBox;
     private Frame3[][] nextPanel;
+    private Mp3Player login;
     private JLabel introText;
     private JLabel label1;
     private Image background;
@@ -34,11 +35,11 @@ public class Frame2 extends JFrame
         buttons = new JButton[ 2 ][ 2 ];
         buttonJPanel = new JPanel();
 //        handler = new ButtonHandler();
-        stringText = new JLabel("WELCOME, RON"); // JLabel text set
+        stringText = new JLabel("WELCOME RON"); // JLabel text set
         stringText.setBounds(33,10,210,50);
         stringText.setForeground(new Color(219, 216, 216));
         stringText.setFont(new Font("Felix Titling", Font.BOLD | Font.ITALIC, 25));
-        introText = new JLabel("별자리를 누르면 추천작품으로 이동합니다"); //설명 넣은 텍스트
+        introText = new JLabel("버튼을 누르면 추천작품으로 이동합니다"); //설명 넣은 텍스트
         introText.setBounds(33,15,250,100);
         introText.setForeground(new Color(219, 216, 216));
         setLayout(null);
@@ -67,9 +68,13 @@ public class Frame2 extends JFrame
 
         // Button 4개 추가하는 부분 + ActionListenter 추가
         buttons[0][0] = new JButton(new ImageIcon("./lion.png"));
+        buttons[0][0].setToolTipText("권오민");
         buttons[0][1] = new JButton(new ImageIcon("./scale.png"));
+        buttons[0][1].setToolTipText("노현호");
         buttons[1][0] = new JButton(new ImageIcon("./human.png"));
+        buttons[1][0].setToolTipText("신시온");
         buttons[1][1] = new JButton(new ImageIcon("./scolpion.png"));
+        buttons[1][1].setToolTipText("조동현");
         for ( int row = 0; row < 2; row++ )
         {
             for ( int col = 0; col < 2; col++)
@@ -83,6 +88,7 @@ public class Frame2 extends JFrame
 //                buttons[row][col].addActionListener( handler );
             }
         }
+
         buttons[0][0].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
